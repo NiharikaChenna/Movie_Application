@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPopularMovies } from "../redux/moviesSlice";
 
 const CardDetails = () => {
+  // Get the movies and loading state from the Redux store
   const { movies, loading } = useSelector((state) => state.movies);
   const dispatch = useDispatch();
 
+    // Fetch popular movies when the component mounts
   useEffect(() => {
     dispatch(fetchPopularMovies());
   }, []);

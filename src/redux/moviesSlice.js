@@ -7,6 +7,7 @@ const initialState = {
   error: "",
 };
 
+// Async thunk to fetch top movies
 export const fetchTopMovies = createAsyncThunk(
   "movies/fetchTopMovies",
   async (_, { rejectWithValue }) => {
@@ -31,6 +32,7 @@ export const fetchTopMovies = createAsyncThunk(
   }
 );
 
+// Async thunk to fetch popular movies
 export const fetchPopularMovies = createAsyncThunk(
   "movies/fetchPopularMovies",
   async (_, { rejectWithValue }) => {

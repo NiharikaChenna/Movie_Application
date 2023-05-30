@@ -5,6 +5,7 @@ import { fetchTopMovies } from "../redux/moviesSlice";
 import { useEffect, useState } from "react";
 
 const MovieList = () => {
+  // Get the movies, loading state, and error from the Redux store
   const { loading, movies, error } = useSelector((state) => state.movies);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
@@ -12,6 +13,7 @@ const MovieList = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+     // Filter movies based on the search input
     const searchResults = movies.filter((movie) =>
       movie.title.toLowerCase().includes(search.toLowerCase())
     );
@@ -22,10 +24,10 @@ const MovieList = () => {
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
-
+   // Fetch the top movies when the component mounts
   useEffect(() => {
     dispatch(fetchTopMovies());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="container" style={{ marginTop: "6rem" }}>
